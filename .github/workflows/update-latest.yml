@@ -1,0 +1,51 @@
+name: Update latest APK metadata
+on:
+  release:
+    types: [published, edited]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: latest-apk-metadata
+  cancel-in-progress: false
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish metadata for the latest complete release
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const { data: release } = await github.rest.repos.getLatestRelease({ owner, repo });
+            if (release.draft || release.prerelease) return;
+            const apk = release.assets.find(a => a.name === 'slow-forest.apk' && a.state === 'uploaded');
+            const info = release.assets.find(a => a.name === 'release-info.json' && a.state === 'uploaded');
+            if (!apk || !info) throw new Error('Latest release must contain a complete APK and metadata');
+            const response = await fetch(info.browser_download_url);
+            if (!response.ok) throw new Error('Cannot read release metadata: ' + response.status);
+            const text = await response.text();
+            if (text.length > 65536) throw new Error('Oversized release metadata');
+            const saved = JSON.parse(text);
+            if (saved.packageName !== 'com.slowforest.garden' || !Number.isSafeInteger(saved.versionCode)
+                || saved.versionCode < 1 || !/^[a-f0-9]{64}$/.test(saved.sha256)
+                || apk.size !== saved.bytes || apk.digest !== 'sha256:' + saved.sha256) {
+              throw new Error('APK digest, size or package metadata does not match');
+            }
+            const value = {
+              packageName: saved.packageName, versionCode: saved.versionCode, versionName: saved.versionName,
+              tag: release.tag_name, apkUrl: apk.browser_download_url, releaseUrl: release.html_url,
+              sha256: saved.sha256, bytes: apk.size, publishedAt: release.published_at
+            };
+            const content = Buffer.from(JSON.stringify(value, null, 2) + '\\n').toString('base64');
+            let sha;
+            try {
+              const old = await github.rest.repos.getContent({ owner, repo, path: 'latest.json', ref: 'main' });
+              sha = old.data.sha;
+              if (Buffer.from(old.data.content, 'base64').toString() === Buffer.from(content, 'base64').toString()) return;
+            } catch (error) { if (error.status !== 404) throw error; }
+            await github.rest.repos.createOrUpdateFileContents({
+              owner, repo, path: 'latest.json', branch: 'main', content, sha,
+              message: 'Update latest APK to ' + release.tag_name
+            });
+
