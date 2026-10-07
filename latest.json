@@ -1,11 +1,11 @@
 {
   "packageName": "com.slowforest.garden",
-  "versionCode": 27,
-  "versionName": "2.19-guest-reception",
-  "tag": "v2.19-guest-reception",
-  "apkUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/download/v2.19-guest-reception/slow-forest.apk",
-  "releaseUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/tag/v2.19-guest-reception",
-  "sha256": "7bbacfae4146634d692536e6b554b8165fb90c4054188cdaddef2e26f65afef6",
-  "bytes": 142319893,
-  "publishedAt": "2026-10-07T06:16:36Z"
+  "versionCode": 28,
+  "versionName": "2.20-playful-garden",
+  "tag": "v2.20-playful-garden",
+  "apkUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/download/v2.20-playful-garden/slow-forest.apk",
+  "releaseUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/tag/v2.20-playful-garden",
+  "sha256": "b648e49d7dda7a2e85e5bb4957b8bb879e18f855a857eed6c11301922f1655de",
+  "bytes": 159025113,
+  "publishedAt": "2026-10-07T14:27:51Z"
 }
