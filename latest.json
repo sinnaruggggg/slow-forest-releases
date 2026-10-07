@@ -1,11 +1,11 @@
 {
   "packageName": "com.slowforest.garden",
-  "versionCode": 25,
-  "versionName": "2.17-forward-walk",
-  "tag": "v2.17-forward-walk",
-  "apkUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/download/v2.17-forward-walk/slow-forest.apk",
-  "releaseUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/tag/v2.17-forward-walk",
-  "sha256": "12ad97f9a3dc52fc9cc85d34827d259d29734fbbeb722946aefea8312a293543",
-  "bytes": 139532480,
-  "publishedAt": "2026-10-06T23:40:37Z"
+  "versionCode": 26,
+  "versionName": "2.18-garden-detail",
+  "tag": "v2.18-garden-detail",
+  "apkUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/download/v2.18-garden-detail/slow-forest.apk",
+  "releaseUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/tag/v2.18-garden-detail",
+  "sha256": "c68f7643beea401ca442363bcc004e7f7751b293202fa78c036df93b273f8843",
+  "bytes": 141690496,
+  "publishedAt": "2026-10-07T01:32:28Z"
 }
