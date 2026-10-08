@@ -1,11 +1,11 @@
 {
   "packageName": "com.slowforest.garden",
-  "versionCode": 28,
-  "versionName": "2.20-playful-garden",
-  "tag": "v2.20-playful-garden",
-  "apkUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/download/v2.20-playful-garden/slow-forest.apk",
-  "releaseUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/tag/v2.20-playful-garden",
-  "sha256": "b648e49d7dda7a2e85e5bb4957b8bb879e18f855a857eed6c11301922f1655de",
-  "bytes": 159025113,
-  "publishedAt": "2026-10-07T14:27:51Z"
+  "versionCode": 33,
+  "versionName": "2.25-flower-workshop",
+  "tag": "v2.25-flower-workshop",
+  "apkUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/download/v2.25-flower-workshop/slow-forest.apk",
+  "releaseUrl": "https://github.com/sinnaruggggg/slow-forest-releases/releases/tag/v2.25-flower-workshop",
+  "sha256": "a729ffe84997e63980d9d267da1867e9fab9c7684d7c954969603f8e2bbe7d92",
+  "bytes": 147214153,
+  "publishedAt": "2026-10-08T19:24:16Z"
 }
