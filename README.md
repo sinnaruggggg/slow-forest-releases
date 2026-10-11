@@ -1,4 +1,4 @@
-# 느린 숲 · Slow Forest
+# 힐링포레스트 · Slow Forest
 
 Android 가로 전용 미니어처 꽃농장 힐링 게임입니다.
 
